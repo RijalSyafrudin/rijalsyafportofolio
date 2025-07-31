@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moch Rijal Syafrudin - Portfolio</title>
+    
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #2adaae 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --dark-gradient: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        }
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            overflow-x: hidden;
+        }
+        
+        /* Navbar */
+        .navbar {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.95) !important;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .navbar-nav .nav-link {
+            font-weight: 500;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: #667eea !important;
+            transform: translateY(-2px);
+        }
+        
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background: var(--primary-gradient);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-nav .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: var(--primary-gradient);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .hero .description {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .hero-buttons {
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .btn-hero {
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin: 0 10px 10px 0;
+            display: inline-block;
+        }
+        
+        .btn-primary-hero {
+            background: white;
+            color: #667eea;
+            border: 2px solid white;
+        }
+        
+        .btn-primary-hero:hover {
+            background: transparent;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .btn-outline-hero {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-outline-hero:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .profile-img {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255,255,255,0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Section Styling */
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: var(--primary-gradient);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        /* About Section */
+        .about {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f0ff 100%);
+        }
+        
+        .about-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+        }
+        
+        .about-img {
+            width: 250px;
+            height: 250px;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .skill-badge {
+            background: var(--accent-gradient);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-weight: 500;
+            margin: 5px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(79, 172, 254, 0.3);
+        }
+        
+        /* Portfolio Section */
+        .portfolio {
+            background: white;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: none;
+            height: 100%;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.2);
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover .project-img {
+            transform: scale(1.1);
+        }
+        
+        .project-content {
+            padding: 30px;
+        }
+        
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        .tech-badge {
+            background: var(--secondary-gradient);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin: 3px;
+            display: inline-block;
+        }
+        
+        .btn-project {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin: 5px;
+            display: inline-block;
+        }
+        
+        .btn-project:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            color: white;
+        }
+        
+        /* Skills Section */
+        .skills {
+            background: linear-gradient(135deg, #667eea 0%, #2adaae 100%);
+            color: white;
+        }
+        
+        .skill-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .skill-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f0ff 100%);
+        }
+        
+        .contact-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            border: none;
+            height: 100%;
+        }
+        
+        .contact-info {
+            background: var(--primary-gradient);
+            color: white;
+            border-radius: 20px;
+            padding: 40px;
+            height: 100%;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .contact-item i {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            width: 30px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            margin: 10px;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: white;
+            color: #2adaae;
+            transform: translateY(-5px);
+        }
+        
+        .form-control {
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            padding: 15px 20px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color:#2adaae;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        }
+        
+        .btn-submit {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark-gradient);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer a {
+            color: #2adaae;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: white;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .profile-img {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Tentang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Portofolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Keahlian</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1>Moch Rijal Syafrudin</h1>
+                        <p class="subtitle">Sistem Informasi Akuntansi | Web Developer </p>
+                        <p class="description">Saya adalah mahasiswa yang passionate di bidang teknologi informasi dan akuntansi, dengan fokus pada pengembangan web dan sistem informasi modern.</p>
+                        <div class="hero-buttons">
+                            <a href="#contact" class="btn-hero btn-outline-hero">
+                                <i class="bi bi-envelope me-2"></i>Hubungi Saya
+                            </a>
+                            <a href="#" class="btn-hero btn-outline-hero">
+                                <i class="bi bi-download me-2"></i>Download CV
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="img/foto.jpg" alt="Profile Picture" class="profile-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <h2 class="section-title">Tentang Saya</h2>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <img src="https://via.placeholder.com/250x250/764ba2/ffffff?text=About+Me" alt="About Me" class="about-img">
+                </div>
+                <div class="col-lg-8">
+                    <div class="about-card">
+                        <h3 class="mb-4">Halo! Saya seorang mahasiswa yang passionate</h3>
+                        <p class="mb-4">Memiliki pengalaman dalam menggunakan berbagai bahasa pemrograman dan tools akuntansi modern. Saya selalu eager untuk belajar teknologi baru dan mengaplikasikannya dalam setiap proyek yang dikerjakan.</p>
+                        
+                        <p class="mb-4">Kombinasi background akuntansi dan IT memberikan saya perspektif unik dalam mengembangkan solusi teknologi untuk bisnis.</p>
+                        
+                        <h5 class="mb-3">Keahlian Utama:</h5>
+                        <div class="skills-tags">
+                            <span class="skill-badge">HTML5</span>
+                            <span class="skill-badge">CSS3</span>
+                            <span class="skill-badge">JavaScript</span>
+                            <span class="skill-badge">PHP Native</span>
+                            <span class="skill-badge">CodeIgniter 4</span>
+                            <span class="skill-badge">Bootstrap</span>
+                            <span class="skill-badge">MYOB</span>
+                            <span class="skill-badge">ABSS v25</span>
+                            <span class="skill-badge">MySQL</span>
+                            <span class="skill-badge">Figma</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section portfolio">
+        <div class="container">
+            <h2 class="section-title">Portofolio Proyek</h2>
+            <div class="row">
+                <!-- Project 1 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card project-card">
+                        <img src="img/masjid.png" alt="Project 1" class="project-img">
+                        <div class="project-content">
+                            <h5 class="project-title">Sistem Keuangan Masjid</h5>
+                            <p class="mb-3">Aplikasi web untuk mengelola keuangan Masjid dengan fitur pemasukan, pengeluaran, serta laporan.</p>
+                            <div class="mb-3">
+                                <span class="tech-badge">PHP</span>
+                                <span class="tech-badge">CodeIgniter 3</span>
+                                <span class="tech-badge">MySQL</span>
+                                <span class="tech-badge">Bootstrap</span>
+                            </div>
+                            <a href="#" class="btn-project">
+                                <i class="bi bi-github me-1"></i>GitHub
+                            </a>
+                            <a href="http://privat.amik-taruna.ac.id/assulthon007/" class="btn-project">
+                                <i class="bi bi-eye me-1"></i>Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card project-card">
+                        <img src="img/sepatu.png" alt="Project 2" class="project-img">
+                        <div class="project-content">
+                            <h5 class="project-title">E-Commerce Sepatu</h5>
+                            <p class="mb-3">Landing page modern untuk toko online dengan design responsive dan fitur interaktif menggunakan JavaScript.</p>
+                            <div class="mb-3">
+                                <span class="tech-badge">HTML</span>
+                                <span class="tech-badge">CSS</span>
+                                <span class="tech-badge">JavaScript</span>
+                                <span class="tech-badge">JavaScript</span>
+                            </div>
+                            <a href="https://github.com/RijalSyafrudin/rijalshoestallwind.git" class="btn-project">
+                                <i class="bi bi-github me-1"></i>GitHub
+                            </a>
+                            <a href="https://rijalsyafrudin.github.io/rijalshoestallwind/" class="btn-project">
+                                <i class="bi bi-eye me-1"></i>Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card project-card">
+                        <img src="img/wisata.png" alt="Project 3" class="project-img">
+                        <div class="project-content">
+                            <h5 class="project-title">Sistem Informasi Wisata</h5>
+                            <p class="mb-3">Landing page modern untuk promosi wisata dengan design responsive dan fitur interaktif menggunakan JavaScript.</p>
+                            <div class="mb-3">
+                                <span class="tech-badge">HTML</span>
+                                <span class="tech-badge">CSS</span>
+                                <span class="tech-badge">Tailwind</span>
+                                <span class="tech-badge">JavaScript</span>
+                            </div>
+                            <a href="https://github.com/RijalSyafrudin/wisatatallwind.git" class="btn-project">
+                                <i class="bi bi-github me-1"></i>GitHub
+                            </a>
+                            <a href="https://rijalsyafrudin.github.io/wisatatallwind/" class="btn-project">
+                                <i class="bi bi-eye me-1"></i>Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <!-- <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card project-card">
+                        <img src="https://via.placeholder.com/400x250/4facfe/ffffff?text=Project+4" alt="Project 4" class="project-img">
+                        <div class="project-content">
+                            <h5 class="project-title">Dashboard Analytics</h5>
+                            <p class="mb-3">Dashboard interaktif untuk visualisasi data bisnis dengan berbagai chart dan filter dinamis.</p>
+                            <div class="mb-3">
+                                <span class="tech-badge">JavaScript</span>
+                                <span class="tech-badge">Chart.js</span>
+                                <span class="tech-badge">PHP</span>
+                                <span class="tech-badge">Bootstrap</span>
+                            </div>
+                            <a href="#" class="btn-project">
+                                <i class="bi bi-github me-1"></i>GitHub
+                            </a>
+                            <a href="#" class="btn-project">
+                                <i class="bi bi-eye me-1"></i>Demo
+                            </a>
+                        </div>
+                    </div>
+                </div> -->
+                
+                <!-- Project 5 -->
+                <!-- <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card project-card">
+                        <img src="https://via.placeholder.com/400x250/2c3e50/ffffff?text=Project+5" alt="Project 5" class="project-img">
+                        <div class="project-content">
+                            <h5 class="project-title">Sistem Absensi Online</h5>
+                            <p class="mb-3">Aplikasi absensi online dengan fitur QR Code, GPS tracking, dan laporan kehadiran real-time.</p>
+                            <div class="mb-3">
+                                <span class="tech-badge">CodeIgniter 4</span>
+                                <span class="tech-badge">MySQL</span>
+                                <span class="tech-badge">QR Code</span>
+                                <span class="tech-badge">GPS</span>
+                            </div>
+                            <a href="#" class="btn-project">
+                                <i class="bi bi-github me-1"></i>GitHub
+                            </a>
+                            <a href="#" class="btn-project">
+                                <i class="bi bi-eye me-1"></i>Demo
+                            </a>
+                        </div>
+                    </div>
+                </div> -->
+                
+                <!-- Project 6 -->
+                <!-- <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card project-card">
+                        <img src="https://via.placeholder.com/400x250/f5576c/ffffff?text=Project+6" alt="Project 6" class="project-img">
+                        <div class="project-content">
+                            <h5 class="project-title">Portfolio Website</h5>
+                            <p class="mb-3">Website portfolio personal dengan design modern, responsive, dan interactive animations.</p>
+                            <div class="mb-3">
+                                <span class="tech-badge">HTML5</span>
+                                <span class="tech-badge">CSS3</span>
+                                <span class="tech-badge">JavaScript</span>
+                                <span class="tech-badge">GSAP</span>
+                            </div>
+                            <a href="#" class="btn-project">
+                                <i class="bi bi-github me-1"></i>GitHub
+                            </a>
+                            <a href="#" class="btn-project">
+                                <i class="bi bi-eye me-1"></i>Demo
+                            </a>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills">
+        <div class="container">
+            <h2 class="section-title text-white">Keahlian & Tools</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="skill-item">
+                        <i class="bi bi-code-slash skill-icon"></i>
+                        <h5 class="skill-name">Web Development</h5>
+                        <p>HTML, CSS, JavaScript, PHP, Framework CSS</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="skill-item">
+                        <i class="bi bi-database skill-icon"></i>
+                        <h5 class="skill-name">Database</h5>
+                        <p>MySQL, Database Design, Query Optimization</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="skill-item">
+                        <i class="bi bi-calculator skill-icon"></i>
+                        <h5 class="skill-name">Accounting Software</h5>
+                        <p>MYOB, ABSS v25, Excel Advanced</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="skill-item">
+                        <i class="bi bi-git skill-icon"></i>
+                        <h5 class="skill-name">Version Control</h5>
+                        <p>Git, GitHub, Collaboration</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6mb-4">
+                        <div class="skill-item">
+                            <i class="bi bi-palette skill-icon"></i>
+                            <h5 class="skill-name">Design Tools</h5>
+                            <p>Figma, Canva</p>
+                        </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="skill-item">
+                        <i class="bi bi-gear skill-icon"></i>
+                        <h5 class="skill-name">Framework</h5>
+                        <p>CodeIgniter 4, Laravel, Bootstrap</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="skill-item">
+                        <i class="bi bi-bar-chart skill-icon"></i>
+                        <h5 class="skill-name">Data Analysis</h5>
+                        <p>Excel</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="skill-item">
+                        <i class="bi bi-people skill-icon"></i>
+                        <h5 class="skill-name">Soft Skills</h5>
+                        <p>Team Work, Problem Solving, Communication</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title">Hubungi Saya</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="contact-info">
+                        <h4 class="mb-4">Mari Berkolaborasi!</h4>
+                        <p class="mb-4">Saya terbuka untuk diskusi mengenai proyek, peluang kerja, atau sekadar berbagi pengalaman di bidang teknologi dan akuntansi.</p>
+                        
+                        <div class="contact-item">
+                            <i class="bi bi-geo-alt"></i>
+                            <div>
+                                <h6>Lokasi</h6>
+                                <p>Probolinggo, Jawa Timur, Indonesia</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="bi bi-envelope"></i>
+                            <div>
+                                <h6>Email</h6>
+                                <p>mochrijalsyafrudin73430@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="bi bi-phone"></i>
+                            <div>
+                                <h6>WhatsApp</h6>
+                                <p>+62 823-1557-5952</p>
+                            </div>
+                        </div>
+                        
+                        <div class="social-links mt-4">
+                            <a href="https://github.com/RijalSyafrudin" title="GitHub"><i class="bi bi-github"></i></a>
+                            <a href="www.linkedin.com/in/moch-rijal-7507bb371" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                            <a href="https://www.instagram.com/rijal_syaf7/" title="Instagram"><i class="bi bi-instagram"></i></a>
+                            <a href="#" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="contact-card">
+                        <h4 class="mb-4">Kirim Pesan</h4>
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Nama Lengkap</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Subjek</label>
+                                <input type="text" class="form-control" id="subject" name="subject" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Pesan</label>
+                                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-submit w-100">
+                                <i class="bi bi-send me-2"></i>Kirim Pesan
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4 py-4">
+                <div class="col-lg-4">
+                    <h5 class="mb-3 text-white">About Me</h5>
+                    <p class="footer-text">Mahasiswa Sistem Informasi Akuntansi yang passionate dalam pengembangan web dan teknologi modern.</p>
+                    <div class="social-links mt-3">
+                        <a href="ttps://github.com/RijalSyafrudin" title="GitHub"><i class="bi bi-github"></i></a>
+                        <a href="www.linkedin.com/in/moch-rijal-7507bb371" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="https://www.instagram.com/rijal_syaf7/" title="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" title="Twitter"><i class="bi bi-twitter-x"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="mb-4 text-white">Quick Links</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li class="mb-2">
+                            <a href="#home" class="footer-link">Home</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#about" class="footer-link">About</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#portfolio" class="footer-link">Portfolio</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#skills" class="footer-link">Skills</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#contact" class="footer-link">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="mb-4 text-white text-center">Contact Info</h5>
+                    <div class="contact-info-footer">
+                        <div class="contact-item-footer mb-3 d-flex align-items-center justify-content-center">
+                            <div class="contact-icon me-2">
+                                <i class="bi bi-geo-alt"></i>
+                            </div>
+                            <span>Probolinggo, Indonesia</span>
+                        </div>
+                        <div class="contact-item-footer mb-3 d-flex align-items-center justify-content-center">
+                            <div class="contact-icon me-2">
+                                <i class="bi bi-envelope"></i>
+                            </div>
+                            <span>mochrijalsyafrudin73430@gmail.com</span>
+                        </div>
+                        <div class="contact-item-footer mb-3 d-flex align-items-center justify-content-center">
+                            <div class="contact-icon me-2">
+                                <i class="bi bi-phone"></i>
+                            </div>
+                            <span>+62 823-1557-5952</span>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-12 text-center">
+                        <div class="footer-copyright">
+                            <p class="mb-2">
+                                &copy; 2025 
+                                <span class="brand-name">Moch Rijal Syafrudin</span>. 
+                                All rights reserved.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5.3 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.15)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // Active nav link highlighting
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+            
+            // Simple validation
+            if (!name || !email || !subject || !message) {
+                alert('Mohon lengkapi semua field!');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Format email tidak valid!');
+                return;
+            }
+            
+            // Simulate form submission
+            const submitBtn = this.querySelector('.btn-submit');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Mengirim...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                alert('Pesan berhasil dikirim! Terima kasih sudah menghubungi saya.');
+                this.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.about-card, .project-card, .skill-item, .contact-card, .contact-info').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Typing effect for hero subtitle
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize typing effect when page loads
+        window.addEventListener('load', function() {
+            const subtitle = document.querySelector('.hero .subtitle');
+            const originalText = subtitle.textContent;
+            typeWriter(subtitle, originalText, 80);
+        });
+
+        // Skill badges hover effect
+        document.querySelectorAll('.skill-badge').forEach(badge => {
+            badge.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.05)';
+            });
+            
+            badge.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(-3px) scale(1)';
+            });
+        });
+
+        // Project cards tilt effect on mouse move
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mousemove', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-15px)`;
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(-15px)';
+            });
+        });
+
+        // Back to top button
+        const backToTop = document.createElement('button');
+        backToTop.innerHTML = '<i class="bi bi-arrow-up"></i>';
+        backToTop.className = 'btn-back-to-top';
+        backToTop.style.cssText = `
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #2adaae 100%);
+            color: white;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        `;
+        
+        document.body.appendChild(backToTop);
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 500) {
+                backToTop.style.opacity = '1';
+                backToTop.style.visibility = 'visible';
+            } else {
+                backToTop.style.opacity = '0';
+                backToTop.style.visibility = 'hidden';
+            }
+        });
+        
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        backToTop.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-3px)';
+            this.style.boxShadow = '0 10px 25px rgba(102, 126, 234, 0.4)';
+        });
+        
+        backToTop.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = '0 5px 15px rgba(102, 126, 234, 0.3)';
+        });
+    </script>
+</body>
+</html>
